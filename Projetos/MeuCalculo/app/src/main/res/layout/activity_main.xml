@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="br.senai.sp.informatica.calculadora.MainActivity"
+    tools:ignore="LabelFor">
+
+    <EditText
+        android:id="@+id/edNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/zero"
+        android:textAlignment="textEnd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:minWidth="144dp"
+            android:onClick="opClicked"
+            android:text="@string/clear" />
+
+        <Button
+            android:id="@+id/btMaisMenos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="opClicked"
+            android:text="@string/maismenos" />
+
+        <Button
+            android:id="@+id/btPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="opClicked"
+            android:text="@string/percent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/sete" />
+
+        <Button
+            android:id="@+id/bt8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/oito" />
+
+        <Button
+            android:id="@+id/bt9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/nove" />
+
+        <Button
+            android:id="@+id/btDiv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="opClicked"
+            android:text="@string/dividir" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/quatro" />
+
+        <Button
+            android:id="@+id/bt5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/cinco" />
+
+        <Button
+            android:id="@+id/bt6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/seis" />
+
+        <Button
+            android:id="@+id/btMult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="opClicked"
+            android:text="@string/multiplicar" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/um" />
+
+        <Button
+            android:id="@+id/bt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/dois" />
+
+        <Button
+            android:id="@+id/bt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/tres" />
+
+        <Button
+            android:id="@+id/btMen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="opClicked"
+            android:text="@string/menos" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="numeroClicked"
+            android:text="@string/zero" />
+
+        <Button
+            android:id="@+id/btVirg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="opClicked"
+            android:text="@string/virgula" />
+
+        <Button
+            android:id="@+id/btIg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="opClicked"
+            android:text="@string/iqual" />
+
+        <Button
+            android:id="@+id/btMais"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/customButtonBackground"
+            android:maxWidth="100dp"
+            android:minWidth="72dp"
+            android:onClick="opClicked"
+            android:text="@string/mais" />
+    </LinearLayout>
+
+</LinearLayout>
