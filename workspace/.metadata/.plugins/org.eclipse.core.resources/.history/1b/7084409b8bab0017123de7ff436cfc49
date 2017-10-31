@@ -1,0 +1,124 @@
+package br.senai.sp.informatica.mobileb.projetoa;
+
+import java.awt.FileDialog;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
+public class DesvendaCodigo {
+	public static void main(String[] args) {
+		List<Codigo> codigos = new ArrayList<>();
+		
+		// Le o codigo
+		String chave = JOptionPane.showInputDialog("Informe o código");
+		// divide o codigo
+		String[] lista = chave.split(":");
+		
+		for (int i = 0; i < lista.length; i+=3) {
+			String[] codigo = Arrays.copyOfRange(lista, i, i+3);
+			codigos.add(new Codigo(i, codigo));
+		}
+		// ordena o codigo
+		Collections.sort(codigos, Comparator.comparing(Codigo::getParagrafo)
+				.thenComparing(Codigo::getLinha)
+				.thenComparing(Codigo::getPalavra));
+		
+		// Abre o arquivo de Texto
+		FileDialog fd = new FileDialog((JDialog) null, "Abrir", FileDialog.LOAD);
+		fd.setVisible(true);
+		String nome = fd.getDirectory() + fd.getFile();
+
+		// Carrega o texto em memória
+		try (FileReader fr = new FileReader(nome); BufferedReader in = new BufferedReader(fr);) {
+			String linha = in.readLine();
+
+			// se a linha estiver vazia, incrementar o contador de paragafos
+			
+			while (linha != null) {
+				System.out.println(linha);
+				linha = in.readLine();
+			}
+		} catch (FileNotFoundException ex) {
+			System.out.println("O Arquivo " + nome + "não foi encontrado");
+		} catch (IOException ex) {
+			System.out.println("Problemas na leitura do arquivo: " + nome);
+		}
+	}
+}
+
+// Esta classe define a estrutura do codigo sua ordem e o texto associado
+// Para carregar o texto a coleção de codigos deve ser ordenado por (paragrafo, linha e palavra)
+// para imprimir a frase final a coleção de codigos deve ser ordenada por ordem
+class Codigo {
+	private int ordem;
+	private int paragrafo;
+	private int linha;
+	private int palavra;
+	private String texto;
+	
+	// o ocnstrutor deve receber a ordem e os numeros que compõem um código (paragrafo, linha e palavra)
+	public Codigo(int ordem, String[] codigo) {
+		try {
+			if (codigo.length == 3) {
+				this.ordem = ordem;
+				this.paragrafo = Integer.parseInt(codigo[0]);
+				this.linha = Integer.parseInt(codigo[0]);
+				this.palavra = Integer.parseInt(codigo[0]);
+			} else {
+				throw new Error("Código errado: " + codigo);
+			}
+		} catch (NumberFormatException ex) {
+			throw new Error("Código errado: " + codigo);
+		}
+	}
+
+	public int getOrdem() {
+		return ordem;
+	}
+
+	public void setOrdem(int ordem) {
+		this.ordem = ordem;
+	}
+
+	public int getParagrafo() {
+		return paragrafo;
+	}
+
+	public void setParagrafo(int paragrafo) {
+		this.paragrafo = paragrafo;
+	}
+
+	public int getLinha() {
+		return linha;
+	}
+
+	public void setLinha(int linha) {
+		this.linha = linha;
+	}
+
+	public int getPalavra() {
+		return palavra;
+	}
+
+	public void setPalavra(int palavra) {
+		this.palavra = palavra;
+	}
+
+	public String getTexto() {
+		return texto;
+	}
+
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+	
+}

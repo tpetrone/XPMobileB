@@ -1,0 +1,72 @@
+package br.senai.sp.informatica.mobileb.calculadora;
+
+import java.util.Stack;
+
+import javax.swing.JOptionPane;
+
+public class FazCalculo {
+	public static void main(String[] args) {
+		try {
+			Calculadora calc = new Calculadora();
+
+			calc.entra(Double.parseDouble(JOptionPane.showInputDialog("Informe o 1º nº")));
+			calc.setOperacao(Operacao.SOMA);
+			calc.entra(Double.parseDouble(JOptionPane.showInputDialog("Informe o 2º nº")));
+			JOptionPane.showMessageDialog(null, calc.resultado());
+
+			calc.entra(10);
+			calc.setOperacao(Operacao.SUBTRACAO);
+			calc.entra(Double.parseDouble(JOptionPane.showInputDialog("Informe o próximo nº")));
+			JOptionPane.showMessageDialog(null, calc.resultado());
+		} catch (CalculadoraException ex) {
+			JOptionPane.showMessageDialog(null, ex.getMessage());
+		}
+	}
+}
+
+enum Operacao {
+	SOMA {
+		public double calcule(double num1, double num2) {
+			return num1 + num2;
+		}
+	},
+	SUBTRACAO {
+		public double calcule(double num1, double num2) {
+			return num1 - num2;
+		}
+	};
+
+	public abstract double calcule(double num1, double num2);
+}
+
+class Calculadora {
+	private Stack<Double> pilha = new Stack<>();
+	private Operacao op;
+
+	public void entra(double num) throws CalculadoraException {
+		if (pilha.size() <= 1) {
+			pilha.push(num);
+		} else {
+			throw new CalculadoraException("Excedeu a quantidade de números para o cálculo");
+		}
+	}
+
+	public void setOperacao(Operacao op) {
+		this.op = op;
+	}
+
+	public double resultado() {
+		double num2 = pilha.pop();
+		double num1 = pilha.pop();
+		double resultado = op.calcule(num1, num2);
+		pilha.push(resultado);
+		return resultado;
+	}
+}
+
+@SuppressWarnings("serial")
+class CalculadoraException extends Exception {
+	public CalculadoraException(String message) {
+		super(message);
+	}
+}

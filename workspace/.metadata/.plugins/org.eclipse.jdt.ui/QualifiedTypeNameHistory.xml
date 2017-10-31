@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="javax.rmi.CORBA.Util"/>
+<fullyQualifiedTypeName name="java.lang.Math"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.projetoa.ArquivoDao"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.projetoa.DaoException"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.projetoa.CodigoDao"/>
+<fullyQualifiedTypeName name="org.xml.sax.ext.LexicalHandler"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ForkJoinPool.ManagedBlocker"/>
+<fullyQualifiedTypeName name="java.util.Locale"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.projeto_enigma.Codigo"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.lib.Util"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.exemplos.objeto.Funcionario"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.util.Stack"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.calculadora.Operacao"/>
+<fullyQualifiedTypeName name="java.lang.Double"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.calculadora.CalculadoraException"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.respostas.ex01.GerenteException"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.respostas.ex03.db.GerenteDeDados"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.respostas.ex03.db.GerenteException"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.respostas.lib.GerenteException"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.exemplos.MVCcursoLista.view.CadCurso"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.exemplos.MVCcursoLista.model.CursoDao"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.exemplos.MVCcursoLista.model.generic.DaoException"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.exemplos.MVCcursoLista.model.Curso"/>
+</qualifiedTypeNameHistroy>

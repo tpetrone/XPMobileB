@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item id="projectExplorer">
+		<column name="Name" visible="true" order="0" width="106"/>
+		<column name="DataSource" visible="true" order="1" width="66"/>
+		<column name="Preview" visible="false" order="2" width="0"/>
+		<column name="Size" visible="false" order="3" width="0"/>
+		<column name="Modified" visible="false" order="4" width="0"/>
+		<column name="Type" visible="false" order="5" width="0"/>
+	</item>
+</items>
