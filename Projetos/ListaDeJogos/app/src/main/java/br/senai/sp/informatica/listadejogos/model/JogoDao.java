@@ -45,9 +45,9 @@ public class JogoDao {
                 lista.get(lista.indexOf(new Jogo(id)));
 
         // Utiliza a implementação funcional em Java 8
-        Jogo outroJogo = lista.stream()
-                .filter(obj -> obj.getId() == id)
-                .findAny().orElse(null);
+//        Jogo outroJogo = lista.stream()
+//                .filter(obj -> obj.getId() == id)
+//                .findAny().orElse(null);
 
         return oJogo;
     }
