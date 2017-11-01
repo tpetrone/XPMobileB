@@ -84,8 +84,8 @@ class JogoAdapter extends BaseAdapter {
 
         // o registro da posição solicitada e encontrar o objeto
         // atribuir o objeto ao layout
-        TextView tvJogo = layout.findViewById(R.id.tvJogo);
-        TextView tvGenero = layout.findViewById(R.id.tvGenero);
+        TextView tvJogo = (TextView)layout.findViewById(R.id.tvJogo);
+        TextView tvGenero = (TextView)layout.findViewById(R.id.tvGenero);
 
         Long id = mapa.get(linha);
         Jogo jogo = dao.getJogo(id);

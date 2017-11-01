@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         itemLista = new JogoAdapter();
 
-        listView = findViewById(R.id.listView);
+        listView = (ListView)findViewById(R.id.listView);
         listView.setAdapter(itemLista);
     }
 }
