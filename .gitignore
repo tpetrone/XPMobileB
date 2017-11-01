@@ -1,0 +1,6 @@
+*.DS_Store
+.gradle
+/build
+/.idea*
+Binarios
+Java_Como_Programar-10.pdf
