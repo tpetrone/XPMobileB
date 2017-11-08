@@ -23,6 +23,7 @@ public class JogoDao {
 
     public List<Jogo> getLista() {
         // suportado no Java 8
+        Collections.sort(lista);
         return Collections.unmodifiableList(lista);
         // suportado em todas as versões do Java
         // return Collections.synchronizedList(lista);
@@ -55,7 +56,7 @@ public class JogoDao {
     public void salvar(Jogo obj) {
         // Se o objeto não tem ID é reconhecido como
         // novo objeto a ser incluido na lista
-        if(obj.getId() != null) {
+        if(obj.getId() == null) {
             obj.setId(id++);
             lista.add(obj);
         } else {
