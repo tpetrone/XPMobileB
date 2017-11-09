@@ -7,6 +7,7 @@
     android:background="@color/fundoDoListView"
     tools:context="br.senai.sp.informatica.listadejogos.view.MainActivity">
 
+
     <TextView
         android:id="@+id/tvTitulo"
         android:layout_width="0dp"
@@ -25,12 +26,25 @@
         android:id="@+id/listView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+        app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btAdiciona"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="true"
+        android:onClick="adicionaJogo"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
 </android.support.constraint.ConstraintLayout>

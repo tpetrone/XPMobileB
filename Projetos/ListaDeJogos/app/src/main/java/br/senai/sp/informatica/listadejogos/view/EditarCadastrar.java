@@ -4,7 +4,6 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,12 +15,16 @@ import br.senai.sp.informatica.listadejogos.model.JogoDao;
 
 /**
  * Created by pena on 07/11/2017.
+ *
+ * Esta classe é utilizada na criação ou alteração de um Jogo
  */
 
 public class EditarCadastrar extends AppCompatActivity {
+    // Referência do JogoDao a ser utilizada na activity
     private JogoDao dao = JogoDao.manager;
     private EditText edJogo;
     private EditText edGenero;
+    // Referência do objeto Jogo que está em edição no momento
     private Jogo jogo;
 
     @Override
@@ -54,7 +57,7 @@ public class EditarCadastrar extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.menu_editar, menu);
         return true;
     }
 
@@ -66,7 +69,7 @@ public class EditarCadastrar extends AppCompatActivity {
             case android.R.id.home:
                 setResult(Activity.RESULT_CANCELED);
                 break;
-            case R.id.salvar:
+            case R.id.acao_salvar:
                 if(jogo == null) {
                     jogo = new Jogo();
                 }

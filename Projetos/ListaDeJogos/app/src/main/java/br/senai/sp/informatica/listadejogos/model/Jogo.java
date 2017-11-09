@@ -6,10 +6,13 @@ import android.support.annotation.NonNull;
  * Created by pena on 31/10/2017.
  */
 
+
 public class Jogo implements Comparable<Jogo> {
     private Long id;
     private String nome;
     private String genero;
+    // Atributo para identificar que o Jogo esta marcado para exclusão
+    private boolean del;
 
     public Jogo() {
     }
@@ -47,6 +50,14 @@ public class Jogo implements Comparable<Jogo> {
 
     public void setGenero(String genero) {
         this.genero = genero;
+    }
+
+    public boolean isDel() {
+        return del;
+    }
+
+    public void setDel(boolean del) {
+        this.del = del;
     }
 
     // Implementado para o uso do método indexOf na classe JogoDao

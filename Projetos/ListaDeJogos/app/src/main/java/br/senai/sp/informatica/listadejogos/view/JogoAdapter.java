@@ -2,10 +2,12 @@ package br.senai.sp.informatica.listadejogos.view;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -20,9 +22,16 @@ import br.senai.sp.informatica.listadejogos.model.JogoDao;
  * Created by pena on 31/10/2017.
  */
 
-class JogoAdapter extends BaseAdapter {
+enum TipoDeDetalhe {
+    EDICAO,
+    EXCLUSAO;
+}
+
+class JogoAdapter extends BaseAdapter implements View.OnClickListener {
     private JogoDao dao = JogoDao.manager;
     private Map<Integer, Long> mapa;
+    private boolean trocouLayout = false;
+    private boolean apagar = false;
 
     public JogoAdapter() {
         criaMapa();
@@ -47,6 +56,21 @@ class JogoAdapter extends BaseAdapter {
         }
     }
 
+    // Este método é responsável por trocar o
+    // layout do detalhe da lista e
+    // notificar o listView da mudança
+    public void trocouOLayout(TipoDeDetalhe tipo) {
+        if(tipo == TipoDeDetalhe.EDICAO) {
+            trocouLayout = true;
+            apagar = false;
+        } else {
+            trocouLayout = true;
+            apagar = true;
+        }
+        notifyDataSetChanged();
+    }
+
+
     @Override
     public int getCount() {
         return mapa.size();
@@ -66,7 +90,7 @@ class JogoAdapter extends BaseAdapter {
     public View getView(int linha, View view, ViewGroup viewGroup) {
 
         ConstraintLayout layout;
-        if(view == null) {
+        if(view == null || trocouLayout) {
             // Obtem o contexto de execução do ListView
             Context ctx = viewGroup.getContext();
             // localizar o serviço de construção do layout
@@ -77,7 +101,11 @@ class JogoAdapter extends BaseAdapter {
             // Criar um objeto de Layout
             layout = new ConstraintLayout(ctx);
             // informar o layout xml a ser carregado
-            inflater.inflate(R.layout.detalhe_layout, layout);
+            if(!apagar) {
+                inflater.inflate(R.layout.detalhe_layout, layout);
+            } else {
+                inflater.inflate(R.layout.detalhe2_layout, layout);
+            }
         } else {
             layout = (ConstraintLayout)view;
         }
@@ -93,6 +121,29 @@ class JogoAdapter extends BaseAdapter {
         tvJogo.setText(jogo.getNome());
         tvGenero.setText(jogo.getGenero());
 
+
+        //TODO: Criar um checkBox e registrar o evento de click
+        // este evento marcará o Jogo (pelo ID) para exclusão
+
+        if(apagar) {
+            CheckBox checkBox = (CheckBox)layout.findViewById(R.id.checkBox);
+            checkBox.setTag(jogo.getId());
+            checkBox.setOnClickListener(this);
+        }
+
         return layout;
+    }
+
+    @Override
+    public void onClick(View view) {
+        Long id = (Long)view.getTag();
+        Jogo jogo = dao.getJogo(id);
+        jogo.setDel(!jogo.isDel());
+
+//        Log.d("JogoAdapter", "Jodo marcado para exclusão [" +
+//                jogo.isDel() +
+//                "] id: " + jogo.getId());
+
+        dao.salvar(jogo);
     }
 }

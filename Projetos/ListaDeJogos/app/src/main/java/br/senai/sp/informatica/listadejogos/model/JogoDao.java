@@ -11,16 +11,28 @@ import java.util.function.Predicate;
  */
 
 public class JogoDao {
+    // Mantém a única instância de objeto do JogoDao
+    // para possibilitar que a lista de jogos seja
+    // única na aplicação
     public static JogoDao manager = new JogoDao();
+    // Lista onde serão armazenados os objetos Jogos
     private List<Jogo> lista;
+    // atributo utilizado para a geração do ID para cada
+    // novo Jogo
     private long id = 0;
 
+    // Construtor que inicializa a lista
+    // e temporariamente inicializa dois objetos Jogo
+    // para teste da aplicação
     private JogoDao() {
         lista = new ArrayList<>();
         lista.add(new Jogo(id++, "Mortal Combat", "Luta"));
         lista.add(new Jogo(id++, "Final Fantasy XII", "RPG"));
     }
 
+    /*
+        método utilizado para a obtemção de uma lista ordenada de Jogos
+     */
     public List<Jogo> getLista() {
         // suportado no Java 8
         Collections.sort(lista);
@@ -29,6 +41,9 @@ public class JogoDao {
         // return Collections.synchronizedList(lista);
     }
 
+    /*
+        médoto utilizado para a localização de um objeto jogo a partir de seu ID
+     */
     public Jogo getJogo(final Long id) {
         // Pesquisa tradicional
         Jogo oJogo = null;
@@ -53,6 +68,9 @@ public class JogoDao {
         return oJogo;
     }
 
+    /*
+        método utilizado para incluir ou atualizar um jogo na lista interna
+     */
     public void salvar(Jogo obj) {
         // Se o objeto não tem ID é reconhecido como
         // novo objeto a ser incluido na lista
@@ -68,10 +86,31 @@ public class JogoDao {
         }
     }
 
+    /*
+        médoto utilizado para remover um determinado Jogo a partir de seu ID
+     */
     public void remover(Long id) {
         // Localiza o objeto pelo id informado
         // e em seguida remove da lista
         lista.remove(new Jogo(id));
     }
 
+
+    /*
+        médoto utilizado para remover todos os jogos selecionados para exclusão
+     */
+    public void apagarOsSelecionados() {
+        // Constroi a lista dos Jogos a serem removidos
+        List<Jogo> osJogos = new ArrayList<>();
+        for(Jogo obj : lista) {
+            if(obj.isDel()) {
+                osJogos.add(obj);
+            }
+        }
+
+        // Remove todos os Jogos da lista dos excluiveis
+        for(Jogo jogo : osJogos) {
+            remover(jogo.getId());
+        }
+    }
 }
