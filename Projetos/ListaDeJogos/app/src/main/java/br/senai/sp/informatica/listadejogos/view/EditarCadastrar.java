@@ -32,8 +32,8 @@ public class EditarCadastrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.jogo_layout);
 
-        edJogo = findViewById(R.id.edJogo);
-        edGenero = findViewById(R.id.edGenero);
+        edJogo = (EditText)findViewById(R.id.edJogo);
+        edGenero = (EditText)findViewById(R.id.edGenero);
 
         Intent intent = getIntent();
         if(intent != null) {

@@ -1,7 +1,9 @@
 package br.senai.sp.informatica.listadejogos.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,7 +17,8 @@ import br.senai.sp.informatica.listadejogos.R;
 import br.senai.sp.informatica.listadejogos.model.JogoDao;
 
 public class MainActivity extends AppCompatActivity
-    implements AdapterView.OnItemClickListener {
+    implements AdapterView.OnItemClickListener,
+        DialogInterface.OnClickListener {
     private JogoDao dao = JogoDao.manager;
     private ListView listView;
     private MenuItem itEditar;
@@ -62,28 +65,38 @@ public class MainActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.acao_editar:
-                //TODO: ERRO não volta o layout
-                //TODO: apresentar como Logar na console
                 itemLista.trocouOLayout(TipoDeDetalhe.EXCLUSAO);
                 itEditar.setVisible(false);
                 itApagar.setVisible(true);
                 break;
             case R.id.acao_apagar:
-                //TODO: incluir um alerta de confirmação
+                // Apresenta um alerta de confirmação
+                AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+                alerta.setMessage("Confirma a exclusão dos Jogos?");
+                alerta.setNegativeButton("Não", null);
+                alerta.setPositiveButton("Sim", this);
+                alerta.create();
+                alerta.show();
 
-                dao.apagarOsSelecionados();
-                itemLista.trocouOLayout(TipoDeDetalhe.EDICAO);
-                itEditar.setVisible(true);
-                itApagar.setVisible(false);
                 break;
         }
 
         return true;
     }
 
+    // Executa a exclusão dos Jogos quando selecionado a
+    // opção "Sim" no Alerta de confirmação
+    @Override
+    public void onClick(DialogInterface dialog, int botao) {
+        dao.apagarOsSelecionados();
+        itemLista.trocouOLayout(TipoDeDetalhe.EDICAO);
+        itEditar.setVisible(true);
+        itApagar.setVisible(false);
+    }
+
     /*
-                Este método trata da ação do click nos itens da lista
-             */
+           Este método trata da ação do click nos itens da lista
+        */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int linha, long id) {
         // é criado um Intent para definir ao Android qual Activity será chamada

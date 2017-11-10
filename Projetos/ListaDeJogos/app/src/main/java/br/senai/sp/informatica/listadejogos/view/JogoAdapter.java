@@ -1,7 +1,10 @@
 package br.senai.sp.informatica.listadejogos.view;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.constraint.ConstraintLayout;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,6 +35,8 @@ class JogoAdapter extends BaseAdapter implements View.OnClickListener {
     private Map<Integer, Long> mapa;
     private boolean trocouLayout = false;
     private boolean apagar = false;
+    private Long idApagar;
+    private Activity activity;
 
     public JogoAdapter() {
         criaMapa();
@@ -122,7 +127,7 @@ class JogoAdapter extends BaseAdapter implements View.OnClickListener {
         tvGenero.setText(jogo.getGenero());
 
 
-        //TODO: Criar um checkBox e registrar o evento de click
+        // Cria um checkBox e registrar o evento de click
         // este evento marcará o Jogo (pelo ID) para exclusão
 
         if(apagar) {
@@ -140,9 +145,9 @@ class JogoAdapter extends BaseAdapter implements View.OnClickListener {
         Jogo jogo = dao.getJogo(id);
         jogo.setDel(!jogo.isDel());
 
-//        Log.d("JogoAdapter", "Jodo marcado para exclusão [" +
-//                jogo.isDel() +
-//                "] id: " + jogo.getId());
+        Log.d("JogoAdapter", "Jodo marcado para exclusão [" +
+                jogo.isDel() +
+                "] id: " + jogo.getNome());
 
         dao.salvar(jogo);
     }
