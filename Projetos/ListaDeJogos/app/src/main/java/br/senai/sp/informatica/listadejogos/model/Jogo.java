@@ -64,10 +64,12 @@ public class Jogo implements Comparable<Jogo> {
     // estes métodos são necessários para que as pesquisas e teste
     // de igualdade funcionem adequadamente quando esta classe for
     // utilizada em Collections tais como List, Set e Map
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Jogo)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Jogo jogo = (Jogo) o;
 
@@ -83,6 +85,6 @@ public class Jogo implements Comparable<Jogo> {
 
     @Override
     public int compareTo(@NonNull Jogo outro) {
-        return nome.compareTo(outro.nome);
+        return nome.toLowerCase().compareTo(outro.nome.toLowerCase());
     }
 }

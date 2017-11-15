@@ -1,5 +1,6 @@
 package br.senai.sp.informatica.listadejogos.view;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -30,6 +31,7 @@ enum TipoDeDetalhe {
     EXCLUSAO;
 }
 
+@SuppressLint("UseSparseArrays")
 class JogoAdapter extends BaseAdapter implements View.OnClickListener {
     private JogoDao dao = JogoDao.manager;
     private Map<Integer, Long> mapa;
@@ -74,7 +76,6 @@ class JogoAdapter extends BaseAdapter implements View.OnClickListener {
         }
         notifyDataSetChanged();
     }
-
 
     @Override
     public int getCount() {
@@ -145,7 +146,7 @@ class JogoAdapter extends BaseAdapter implements View.OnClickListener {
         Jogo jogo = dao.getJogo(id);
         jogo.setDel(!jogo.isDel());
 
-        Log.d("JogoAdapter", "Jodo marcado para exclusão [" +
+        Log.d("JogoAdapter", "Jogo marcado para exclusão [" +
                 jogo.isDel() +
                 "] id: " + jogo.getNome());
 

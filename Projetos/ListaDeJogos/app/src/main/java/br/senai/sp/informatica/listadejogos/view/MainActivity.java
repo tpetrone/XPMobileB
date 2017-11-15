@@ -16,9 +16,8 @@ import android.widget.ListView;
 import br.senai.sp.informatica.listadejogos.R;
 import br.senai.sp.informatica.listadejogos.model.JogoDao;
 
-public class MainActivity extends AppCompatActivity
-    implements AdapterView.OnItemClickListener,
-        DialogInterface.OnClickListener {
+ public class MainActivity extends AppCompatActivity
+    implements AdapterView.OnItemClickListener, DialogInterface.OnClickListener {
     private JogoDao dao = JogoDao.manager;
     private ListView listView;
     private MenuItem itEditar;
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity
         listView.setOnItemClickListener(this);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Registra o menu das opções de exclusão de itens da lista
@@ -58,7 +56,6 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -70,18 +67,27 @@ public class MainActivity extends AppCompatActivity
                 itApagar.setVisible(true);
                 break;
             case R.id.acao_apagar:
-                // Apresenta um alerta de confirmação
-                AlertDialog.Builder alerta = new AlertDialog.Builder(this);
-                alerta.setMessage("Confirma a exclusão dos Jogos?");
-                alerta.setNegativeButton("Não", null);
-                alerta.setPositiveButton("Sim", this);
-                alerta.create();
-                alerta.show();
-
+                if(dao.temJogoPraApagar()) {
+                    // Apresenta um alerta de confirmação
+                    AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+                    alerta.setMessage("Confirma a exclusão dos Jogos?");
+                    alerta.setNegativeButton("Não", null);
+                    alerta.setPositiveButton("Sim", this);
+                    alerta.create();
+                    alerta.show();
+                } else {
+                    mudaLayout();
+                }
                 break;
         }
 
         return true;
+    }
+
+    private void mudaLayout() {
+        itemLista.trocouOLayout(TipoDeDetalhe.EDICAO);
+        itEditar.setVisible(true);
+        itApagar.setVisible(false);
     }
 
     // Executa a exclusão dos Jogos quando selecionado a
@@ -89,14 +95,12 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onClick(DialogInterface dialog, int botao) {
         dao.apagarOsSelecionados();
-        itemLista.trocouOLayout(TipoDeDetalhe.EDICAO);
-        itEditar.setVisible(true);
-        itApagar.setVisible(false);
+        mudaLayout();
     }
 
     /*
            Este método trata da ação do click nos itens da lista
-        */
+     */
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int linha, long id) {
         // é criado um Intent para definir ao Android qual Activity será chamada
@@ -125,14 +129,12 @@ public class MainActivity extends AppCompatActivity
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String msg = "A " +
-                (requestCode == EDITA_JOGO ? "alteração" : "inclusão") +
+        String msg = "A " + (requestCode == EDITA_JOGO ? "alteração" : "inclusão") +
                 " do Jogo foi ";
 
         // Se a activity informar que houve sucesso em sua execução
         if(resultCode == RESULT_OK) {
-            // é solicitado ao Adapter que os itens da lista sejam atualizados
-            // no listView
+            // é solicitado ao Adapter que os itens da lista sejam atualizados no listView
             itemLista.notifyDataSetChanged();
             msg += "um sucesso";
         } else {

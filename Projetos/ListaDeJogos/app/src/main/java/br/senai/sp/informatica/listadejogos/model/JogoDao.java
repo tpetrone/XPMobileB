@@ -2,6 +2,7 @@ package br.senai.sp.informatica.listadejogos.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -34,8 +35,10 @@ public class JogoDao {
         método utilizado para a obtemção de uma lista ordenada de Jogos
      */
     public List<Jogo> getLista() {
-        // suportado no Java 8
+        // Todas aas versões de Java
         Collections.sort(lista);
+        // suportado no Java 8
+        // Collections.sort(lista, Comparator.comparing(Jogo::getNome));
         return Collections.unmodifiableList(lista);
         // suportado em todas as versões do Java
         // return Collections.synchronizedList(lista);
@@ -95,7 +98,6 @@ public class JogoDao {
         lista.remove(new Jogo(id));
     }
 
-
     /*
         médoto utilizado para remover todos os jogos selecionados para exclusão
      */
@@ -112,5 +114,16 @@ public class JogoDao {
         for(Jogo jogo : osJogos) {
             remover(jogo.getId());
         }
+    }
+
+    public boolean temJogoPraApagar() {
+        boolean temJogoSelecionado = false;
+        for(Jogo obj : lista) {
+            if(obj.isDel()) {
+               temJogoSelecionado = true;
+               break;
+            }
+        }
+        return temJogoSelecionado;
     }
 }
