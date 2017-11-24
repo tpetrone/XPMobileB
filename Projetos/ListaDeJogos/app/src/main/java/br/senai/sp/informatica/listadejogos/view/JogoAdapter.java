@@ -134,6 +134,7 @@ class JogoAdapter extends BaseAdapter implements View.OnClickListener {
         if(apagar) {
             CheckBox checkBox = (CheckBox)layout.findViewById(R.id.checkBox);
             checkBox.setTag(jogo.getId());
+            checkBox.setChecked(jogo.isDel());
             checkBox.setOnClickListener(this);
         }
 

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Permissoes e Galeria de Fotos</string>
+    <string name="foto">Foto</string>
+    <string name="nome">Nome</string>
+    <string name="salvar">Salvar</string>
+    <string name="click_aqui">Click Aqui!</string>
+</resources>
