@@ -1,4 +1,4 @@
-# Repositório da Turma Code XP Mobile B
+# Repositório da Turma Code XP Mobile
 ## Bem Vindo
 Aqui são disponibilizados os projetos Android, as apresentações, exercícios e respostas.
 ## Como obter
