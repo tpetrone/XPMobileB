@@ -159,7 +159,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void selecionaData(View view) {
-        DateDialog.makeDialog(view,calendar,edLancamento)
+        DateDialog.makeDialog(calendar, edLancamento)
                 .show(getFragmentManager(), "Data de Lançamento");
     }
 
