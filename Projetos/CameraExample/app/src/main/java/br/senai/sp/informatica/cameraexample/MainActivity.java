@@ -21,27 +21,35 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.IOException;
 
+import br.senai.sp.informatica.cameraexample.lib.PhotoEditorActivity;
 import br.senai.sp.informatica.cameraexample.lib.Utilitarios;
 
 public class MainActivity extends AppCompatActivity {
-    public static final int REQUEST_CAMERA_PERMISSION = 4;
+    private static final int REQUEST_CAMERA_PERMISSION = 0;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private ImageView foto;
-    private File fotoUrl;
+    private static final int REQUEST_IMAGE_EDIT = 2;
 
+    private static final String FOTO_USUARIO = "ivFoto";
+    private static final String FOTO_URL = "fotourl";
+
+    private ImageView ivFoto;
+    private File fotoUrl;
+    private boolean novaFoto = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        foto = (ImageView)findViewById(R.id.imageView);
+        ivFoto = (ImageView)findViewById(R.id.imageView);
     }
 
+    // TODO: Aborta quando a Imagem selecionada tem tamanho acima de 100Kb por limitação do Android (Parcelable)
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        Bitmap bitmap = Utilitarios.bitmapFromImageView(foto);
-        if(bitmap != null)
-            outState.putByteArray("foto", Utilitarios.bitmapToBase64(bitmap));
+        outState.putString(FOTO_URL, fotoUrl.getAbsolutePath());
+        Bitmap bitmap = Utilitarios.bitmapFromImageView(ivFoto);
+        if(bitmap != null && novaFoto)
+            outState.putByteArray(FOTO_USUARIO, Utilitarios.bitmapToBase64(bitmap));
         super.onSaveInstanceState(outState);
     }
 
@@ -49,15 +57,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
-        byte[] bytes = savedInstanceState.getByteArray("foto");
-        if(bytes != null) {
+        fotoUrl = new File(savedInstanceState.getString(FOTO_URL));
+        byte[] bytes = savedInstanceState.getByteArray(FOTO_USUARIO);
+        if(bytes != null && novaFoto) {
             Bitmap bitmap = Utilitarios.bitmapFromBase64(bytes);
-            foto.setImageBitmap(bitmap);
+            ivFoto.setImageBitmap(bitmap);
         }
     }
 
     public void abreCamera(View view)  {
-        // Chama a câmera para obter uma foto
+        // Chama a câmera para obter uma ivFoto
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         if (intent.resolveActivity(getPackageManager()) != null) {
@@ -117,14 +126,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Carrega a foto após a captura da imagem pela câmera
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == REQUEST_IMAGE_CAPTURE) { // Recebe a foto da Camera
-                try {
-                    Bitmap bitmap = Utilitarios.setPic(foto.getWidth(), foto.getHeight(), fotoUrl, this);
-                    foto.setImageBitmap(bitmap);
-                    foto.invalidate();
-                } catch (IOException ex) {
-                    Toast.makeText(this, "Falha ao capturar a Foto", Toast.LENGTH_LONG).show();
+                // Chama o Editor de Fotos
+                Intent edFoto = new Intent(this, PhotoEditorActivity.class);
+                edFoto.putExtra("PHOTO_URL", fotoUrl.toString());
+                startActivityForResult(edFoto, REQUEST_IMAGE_EDIT);
+            } else if(requestCode == REQUEST_IMAGE_EDIT) {
+                Bundle dados = data.getExtras();
+                if (dados != null) {
+                    try {
+                        File bitmapUrl = new File(dados.getString("PHOTO_URL"));
+                        Bitmap bitmap = Utilitarios.setPic(ivFoto.getWidth(), ivFoto.getHeight(), bitmapUrl, this);
+                        ivFoto.setImageBitmap(bitmap);
+                        ivFoto.invalidate();
+                        novaFoto = true;
+                    } catch (IOException ex) {
+                        Toast.makeText(this, "Falha ao capturar a Foto", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         }

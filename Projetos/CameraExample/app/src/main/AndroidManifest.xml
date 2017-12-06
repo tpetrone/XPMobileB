@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".lib.PhotoEditorActivity" />
 
         <provider
             android:authorities="br.senai.sp.informatica.cameraexample.provider"

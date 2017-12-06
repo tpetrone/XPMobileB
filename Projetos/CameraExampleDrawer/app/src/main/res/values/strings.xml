@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Camera Example</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="nome">Fulano de Tal</string>
+    <string name="email">fulano@gmail.com</string>
+
+    <string name="preferencias">Preferências</string>
+    <string name="perfil">Perfil</string>
+
+    <string name="ordem_sumario">Determina como será ordenados os Albuns</string>
+    <string name="ordem_titulo">Ordem dos Albuns</string>
+    <string name="ordem_key">ORDEM_DA_LISTA</string>
+    <string name="ordem_default">Banda</string>
+    <string name="filtro_titulo">Filtro</string>
+    <string name="filtro_sumario">Habilita o filtro de pesquisa de albuns</string>
+
+    <string-array name="itens_ordem">
+        <item>Banda</item>
+        <item>Album</item>
+        <item>Lançamento</item>
+    </string-array>
+</resources>

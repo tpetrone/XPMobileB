@@ -20,13 +20,13 @@ import java.util.Calendar;
 
  public class DateDialog extends DialogFragment implements DatePickerDialog.OnDateSetListener {
     private Calendar calendar;
-    private EditText editText;
+    private int editTextResource;
     private static DateFormat fmt =  DateFormat.getDateInstance(DateFormat.LONG);
 
-    public static DateDialog makeDialog(Calendar calendar, EditText editText) {
+    public static DateDialog makeDialog(Calendar calendar, int editTextResource) {
         DateDialog dialog = new DateDialog();
         dialog.calendar = calendar;
-        dialog.editText = editText;
+        dialog.editTextResource = editTextResource;
         return dialog;
     }
 
@@ -34,6 +34,7 @@ import java.util.Calendar;
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         if(calendar == null) {
             long cal = savedInstanceState.getLong("cal");
+            editTextResource = savedInstanceState.getInt("edit");
             calendar = Calendar.getInstance();
             calendar.setTimeInMillis(cal);
         }
@@ -49,11 +50,13 @@ import java.util.Calendar;
     @Override
     public void onDateSet(DatePicker view, int ano, int mes, int dia) {
         calendar.set(ano, mes, dia);
+        EditText editText = (EditText)getActivity().findViewById(editTextResource);
         editText.setText(fmt.format(calendar.getTime()));
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("edit", editTextResource);
         outState.putLong("cal", calendar.getTimeInMillis());
         super.onSaveInstanceState(outState);
     }
