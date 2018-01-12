@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity
     private static int EDIT_ACTION = 0;
     private static int NEW_ACTION = 1;
     private static int PREF_ACTION = 2;
+
     private AlbumAdapter albumAdapter;
+
     private AlbumDao dao = AlbumDao.instance;
     private DrawerLayout drawer;
 
@@ -50,14 +52,16 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        FloatingActionButton fab = findViewById(R.id.btAdd);
-        fab.setOnClickListener(this);
-
+        // Inicializa o ListView
         albumAdapter = new AlbumAdapter(this);
 
         ListView listView = findViewById(R.id.listView);
         listView.setAdapter(albumAdapter);
         listView.setOnItemClickListener(this);
+
+        // Configura o Float Action Button
+        FloatingActionButton fab = findViewById(R.id.btAdd);
+        fab.setOnClickListener(this);
 
         // Configuração do ToolBar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
