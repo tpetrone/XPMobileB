@@ -62,7 +62,12 @@ public class MainActivity extends AppCompatActivity
                 if(dao.existeAlbunsADeletar()) {
                     AlertDialog.Builder alerta = new AlertDialog.Builder(this);
                     alerta.setMessage("Confirma a exclusão deste Amigo?");
-                    alerta.setNegativeButton("Não", null);
+                    alerta.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dao.limpaMarcados();
+                            albumAdapter.notifyDataSetChanged();
+                        }
+                    });
                     alerta.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dao.removerMarcados();

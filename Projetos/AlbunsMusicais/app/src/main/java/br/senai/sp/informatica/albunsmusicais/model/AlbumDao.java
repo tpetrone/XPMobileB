@@ -70,4 +70,12 @@ public class AlbumDao {
 
         return existe;
     }
+
+    public void limpaMarcados() {
+        for(Album obj : lista) {
+            if(obj.isDel()) {
+                obj.setDel(false);
+            }
+        }
+    }
 }

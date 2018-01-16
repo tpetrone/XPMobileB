@@ -80,6 +80,14 @@ public class AlbumDao {
         return existe;
     }
 
+    public void limpaMarcados() {
+        for(Album obj : lista) {
+            if(obj.isDel()) {
+                obj.setDel(false);
+            }
+        }
+    }
+
     class OrdenaPorAlbum implements Comparator<Album> {
        @Override
         public int compare(Album album1, Album album2) {
