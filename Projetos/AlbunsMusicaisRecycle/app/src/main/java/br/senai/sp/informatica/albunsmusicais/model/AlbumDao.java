@@ -81,11 +81,6 @@ public class AlbumDao {
     }
 
     public void limpaMarcados() {
-        for(Album obj : lista) {
-            if(obj.isDel()) {
-                obj.setDel(false);
-            }
-        }
     }
 
     class OrdenaPorAlbum implements Comparator<Album> {
