@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Albuns Musicais</string>
+
+    <string name="navigation_drawer_open">Abrir o Menu Lateral</string>
+    <string name="navigation_drawer_close">Fechar o Menu Lateral</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="preferencias">Preferências</string>
+    <string name="perfil">Perfil</string>
+
+    <string name="foto_da_pessoa">Foto da Pessoa</string>
+    <string name="fulano_de_tal">Fulano de Tal</string>
+    <string name="fulano_gmail_com">fulano@gmail.com</string>
+    <string name="dados_do_usuario">Dados do Usuário</string>
+
+    <string name="ordem_default">Banda</string>
+    <string name="ordem_titulo">Ordem dos Albuns</string>
+    <string name="ordem_key">ORDEM_DA_LISTA</string>
+    <string name="ordem_sumario">Define a ordem como os álbums aparecerão na lista principal</string>
+
+    <string name="filtro_titulo">Filtro de Albuns</string>
+    <string name="filtro_key">FILTRO_HABILITADO</string>
+
+    <string name="lista_default">Em Lista</string>
+    <string name="lista_titulo">Tipo de Apresentação</string>
+    <string name="lista_key">TIPO_DA_LISTA</string>
+    <string name="lista_sumario">Define o tipo da apresentação dos albuns em lista ou em cartões</string>
+
+    <string-array name="ordem_itens">
+        <item>Banda</item>
+        <item>Album</item>
+        <item>Lançamento</item>
+    </string-array>
+
+    <string-array name="tipo_lista">
+        <item>Em Lista</item>
+        <item>Em Cartões</item>
+    </string-array>
+</resources>
+
+
