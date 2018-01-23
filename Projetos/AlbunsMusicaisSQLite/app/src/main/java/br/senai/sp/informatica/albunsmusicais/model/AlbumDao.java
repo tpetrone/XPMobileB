@@ -23,7 +23,7 @@ public class AlbumDao extends SQLiteOpenHelper {
     public static AlbumDao instance = new AlbumDao();
 
     private AlbumDao() {
-        super(Main.getContext(), "DbAlbum", null, 1);
+        super(Main.getContext(), "DbAlbum", null, 3);
     }
 
     @Override
@@ -35,13 +35,25 @@ public class AlbumDao extends SQLiteOpenHelper {
                 "genero text not null," +
                 "lancamento long not null," +
                 "del int not null," +
-                "capa blob)");
+                "capa blob)"
+//                "delA int not null, " +
+//                "delB int not null)"
+       );
     }
+
+    /*
+       Os campos comentados servem de exemplo para demonstrar como proceder
+       nos casos de atualização do Banco de Dados para a aplicação.
+     */
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("drop table if exists album");
-        onCreate(db);
+        switch (oldVersion) {
+            case 1:
+//                db.execSQL("alter table album add column delA int not null");
+            case 2:
+//                db.execSQL("alter table album add column delB int not null");
+        }
 
     }
 
@@ -71,8 +83,13 @@ public class AlbumDao extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         // Produra registro com o mesmo nome
-        Cursor cursor = db.rawQuery("select * from album where lower(banda)=?",
-                new String[] {obj.getBanda().toLowerCase()});
+        Cursor cursor = db.rawQuery("select * from album " +
+                        "where lower(banda)=? and lower(album)=?",
+                new String[]{
+                        obj.getBanda().toLowerCase(),
+                        obj.getAlbum().toLowerCase()
+                }
+        );
 
         if (cursor.getCount() == 0) { // Não encontrado, salva
             String sql = "insert into album (banda, album, genero, lancamento, del, capa) " +
@@ -159,7 +176,8 @@ public class AlbumDao extends SQLiteOpenHelper {
         boolean existe = false;
 
         SQLiteDatabase db = getWritableDatabase();
-        Cursor cursor = db.rawQuery("select count(*) from album where del = 1", null);
+        Cursor cursor = db.rawQuery("select count(*) " +
+                "from album where del = 1", null);
         if(cursor.getCount() > 0) {
             cursor.moveToFirst();
             if(cursor.getInt(0) > 0)
