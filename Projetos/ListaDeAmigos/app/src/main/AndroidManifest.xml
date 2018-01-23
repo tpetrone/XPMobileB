@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="br.senai.sp.informatica.listadeamigos">
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/meus_amigos"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:name=".Main">
+
+        <activity
+            android:name=".view.AmigoActivity"
+            android:parentActivityName=".view.ListaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.ListaActivity"/>
+            <intent-filter>
+                <action android:name="br.senai.sp.informatica.listadeamigos.CHAMA_WIDGET" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".view.ListaActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".lib.PhotoEditorActivity" />
+
+        <activity android:name=".view.UserActivity"/>
+
+        <activity android:name=".view.AlarmeActivity" />
+
+        <receiver android:name=".view.NotificationReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="br.senai.sp.informatica.listadeamigos.NOTIFICA_ALARME"/>
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:authorities="br.senai.sp.informatica.listadeamigos.provider"
+            android:name="android.support.v4.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths_provider" />
+        </provider>
+
+        <service android:name=".view.WidgetService"
+            android:exported="false"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+
+        <receiver android:name=".view.WidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+                <action android:name="br.senai.sp.informatica.listadeamigos.ATUALIZA_AMIGOS"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_provider" />
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/ac_tirar_foto"
+        android:title="@string/tirar_foto" />
+    <item android:id="@+id/ac_galeria_foto"
+        android:title="@string/galeria_de_fotos" />
+    <item android:id="@+id/ac_excluir_foto"
+        android:title="@string/excluir_foto" />
+</menu>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorFundo"
+    tools:context="br.senai.sp.informatica.listadeamigos.view.AmigoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/contato_header2">
+
+        <ImageButton
+            android:id="@+id/btFoto"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@android:drawable/ic_menu_camera"
+            android:background="@android:color/transparent"
+            android:layout_marginEnd="21dp"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/ivFoto"
+            tools:ignore="ContentDescription" />
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@android:color/transparent"/>
+
+        <ImageView
+            android:id="@+id/ivFoto"
+            android:layout_width="68dp"
+            android:layout_height="68dp"
+            android:background="@drawable/person5"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginEnd="35dp"
+            android:layout_alignEnd="@+id/btFoto"
+            tools:ignore="ContentDescription"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amigo"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="11dp"
+            android:layout_below="@+id/ivFoto"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"/>
+
+        <ImageButton
+            android:id="@+id/btSair"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+            android:background="@android:color/transparent"
+            android:layout_alignTop="@+id/toolbar"
+            android:layout_marginTop="5dp"
+            tools:ignore="ContentDescription"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/nome"
+                    android:id="@+id/edNome"
+                    android:inputType="textPersonName"
+                    android:textSize="14sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/e_mail"
+                    android:id="@+id/edEmail"
+                    android:inputType="textEmailAddress"
+                    android:textSize="14sp" />
+            </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:text="@string/data_de_nascimento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp" />
+
+            <TextView
+                android:text="@string/_15_de_janeiro_de_2017"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvData"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                app:srcCompat="@drawable/linha"
+                android:scaleType="fitXY"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                tools:ignore="ContentDescription" />
+
+            <DatePicker
+                android:layout_width="match_parent"
+                android:layout_height="255dp"
+                android:id="@+id/datePicker"
+                android:datePickerMode="spinner"
+                android:layout_marginTop="8dp"
+                android:isScrollContainer="true"
+                android:spinnersShown="true"
+                android:calendarViewShown="false"
+                />
+
+        </LinearLayout >
+
+    </ScrollView>
+</LinearLayout>
+

@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ListaDeAmigos</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="nome">Nome</string>
+    <string name="salva">Salva</string>
+    <string name="salvar">Salvar</string>
+    <string name="amigo">Amigo</string>
+    <string name="dados_pessoais">Dados Pessoais</string>
+    <string name="sair">Sair</string>
+    <string name="alarme">Alarme</string>
+    <string name="meus_amigos">Meus Amigos</string>
+    <string name="lista_dos_amigos">Lista dos Amigos</string>
+    <string name="_15_de_janeiro_de_2017">15 de janeiro de 2017</string>
+    <string name="data_de_nascimento">Data de Nascimento</string>
+    <string name="abreNavegador">Abre o Navegador</string>
+    <string name="fechaNavegador">Fecha o Navegador</string>
+    <string name="tirar_foto">Tirar foto</string>
+    <string name="galeria_de_fotos">Galeria de Fotos</string>
+    <string name="excluir_foto">Excluir Foto</string>
+    <string name="data_alarme">DATA_ALARME</string>
+    <string name="titulo_data_alarme">Data para o início dos Alarmes</string>
+    <string name="hora_alarme">HORA_ALARME</string>
+    <string name="titulo_hora_alarme">Hora para o início dos Alarmes</string>
+    <string name="ativa_alarme">ATIVA_ALARME</string>
+    <string name="habilita_alarme">Habilita/Desabilita o Alarme</string>
+    <string name="alarme_para_os_aniversariantes_do_dia">Alarme para os Aniversariantes do Dia</string>
+</resources>

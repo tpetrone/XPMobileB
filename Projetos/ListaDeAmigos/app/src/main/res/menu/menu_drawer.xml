@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ <menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:id="@+id/grupo1"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_user"
+            android:icon="@drawable/ic_person_black_24dp"
+            android:title="@string/dados_pessoais" />
+
+        <item
+            android:id="@+id/nav_alarme"
+            android:icon="@drawable/ic_alarm_black_24dp"
+            android:title="@string/alarme" />
+    </group>
+
+    <group
+        android:id="@+id/grupo2"
+        android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_sair"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/sair" />
+    </group>
+ </menu>
+
+

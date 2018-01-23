@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <br.senai.sp.informatica.listadeamigos.lib.DatePreference
+        android:key="@string/data_alarme"
+        android:title="@string/titulo_data_alarme" />
+
+    <br.senai.sp.informatica.listadeamigos.lib.TimePreference
+        android:key="@string/hora_alarme"
+        android:title="@string/titulo_hora_alarme" />
+
+    <SwitchPreference
+        android:key="@string/ativa_alarme"
+        android:title="@string/habilita_alarme" />
+</PreferenceScreen>

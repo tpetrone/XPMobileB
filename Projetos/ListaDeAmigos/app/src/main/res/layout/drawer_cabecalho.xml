@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+ <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="186dp"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp"
+    android:gravity="bottom"
+    android:background="@drawable/side_nav_bar"
+    android:theme="@style/AppTheme.Drawer"
+    tools:ignore="HardcodedText">
+
+    <ImageView
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        app:srcCompat="@drawable/person5"
+        android:id="@+id/ivFoto"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:text="Fulano de Tal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvNome"
+        android:paddingTop="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+        android:text="fulano@gmail.com"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvEmail"/>
+  </LinearLayout>
+
+
+
