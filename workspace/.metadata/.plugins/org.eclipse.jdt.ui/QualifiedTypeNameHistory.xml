@@ -4,7 +4,6 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="javax.rmi.CORBA.Util"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
-<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
 <fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.projetoa.ArquivoDao"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.projetoa.DaoException"/>
@@ -33,4 +32,11 @@
 <fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.exemplos.MVCcursoLista.model.CursoDao"/>
 <fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.exemplos.MVCcursoLista.model.generic.DaoException"/>
 <fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.jdbc.exemplos.MVCcursoLista.model.Curso"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.fileio.Cliente"/>
+<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
+<fullyQualifiedTypeName name="java.io.ObjectOutput"/>
+<fullyQualifiedTypeName name="java.io.ObjectOutputStream"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
+<fullyQualifiedTypeName name="java.awt.SecondaryLoop"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
 </qualifiedTypeNameHistroy>

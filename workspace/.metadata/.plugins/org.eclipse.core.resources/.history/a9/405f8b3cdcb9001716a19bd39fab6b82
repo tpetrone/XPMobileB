@@ -1,5 +1,0 @@
-package br.senai.sp.informatica.mobileb.calculadora;
-
-public class CalculadoraException {
-
-}
