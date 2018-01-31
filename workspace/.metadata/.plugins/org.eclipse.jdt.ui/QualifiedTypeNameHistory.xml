@@ -12,9 +12,7 @@
 <fullyQualifiedTypeName name="java.util.concurrent.ForkJoinPool.ManagedBlocker"/>
 <fullyQualifiedTypeName name="java.util.Locale"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.projeto_enigma.Codigo"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.lib.Util"/>
 <fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.exemplos.objeto.Funcionario"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
@@ -39,4 +37,9 @@
 <fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
 <fullyQualifiedTypeName name="java.awt.SecondaryLoop"/>
 <fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.function.Function"/>
+<fullyQualifiedTypeName name="br.senai.sp.informatica.mobileb.exemplos.Xpto"/>
 </qualifiedTypeNameHistroy>
