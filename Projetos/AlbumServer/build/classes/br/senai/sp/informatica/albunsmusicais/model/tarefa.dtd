@@ -1,0 +1,9 @@
+<!ELEMENT albums (album*) >
+<!ELEMENT album (id, banda, nome, genero, lancamento, del, capa?) >
+<!ELEMENT id (#PCDATA) >
+<!ELEMENT banda (#PCDATA) >
+<!ELEMENT nome (#PCDATA) >
+<!ELEMENT genero (#PCDATA) >
+<!ELEMENT lancamento (#PCDATA) >
+<!ELEMENT del (#PCDATA) >
+<!ELEMENT capa (#PCDATA) >
