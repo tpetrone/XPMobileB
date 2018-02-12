@@ -1,0 +1,81 @@
+// rotina para criar alarme
+
+   private boolean criaAlarme() {
+        Calendar hoje = Calendar.getInstance();
+        Log.v("criaAlarme", dataAlarme.getTime().toString());
+        if (dataAlarme.after(hoje)) {
+            dataAlarme.set(Calendar.MILLISECOND, 0);
+            dataAlarme.add(Calendar.SECOND, 0);
+            Intent it = new Intent(activity.getBaseContext(), NotificaReceiver.class);
+            it.setAction("br.senai.sp.curso.listateste.NOTIFICA_ALARM");
+            PendingIntent pi = PendingIntent.getBroadcast(activity.getBaseContext(),
+                    0, it, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            AlarmManager alarm =
+                    (AlarmManager) activity.getBaseContext().getSystemService(Context.ALARM_SERVICE);
+            alarm.set(AlarmManager.RTC_WAKEUP, dataAlarme.getTimeInMillis(), pi);
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+// configurar no AndroidManifest.xml para recever o alarme
+
+
+        <receiver android:name=".view.receiver.NotificaReceiver">
+            <intent-filter>
+                <action android:name="br.senai.sp.curso.listateste.NOTIFICA_ALARM" />
+            </intent-filter>
+        </receiver>
+
+// implementar um BroadCastReceiver para startar o serviço de scaneamento BLE
+
+public class NotificaReceiver extends BroadcastReceiver {
+    public static final int NOTIFICATION_ID = 0xF4ABC5;
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+
+
+// Declarar o serviço no AndroidManifest.xml
+
+  <service
+            android:name=".view.provider.WidgetService"
+            android:exported="false"
+			android:permission="android.permission.BIND_REMOTEVIEWS" />
+				
+// Criar a classe que implementa o serviço
+  // http://developer.android.com/intl/pt-br/guide/components/services.html
+  
+ public class HelloIntentService extends IntentService {
+
+  /**
+   * A constructor is required, and must call the super IntentService(String)
+   * constructor with a name for the worker thread.
+   */
+  public HelloIntentService() {
+      super("HelloIntentService");
+  }
+
+  /**
+   * The IntentService calls this method from the default worker thread with
+   * the intent that started the service. When this method returns, IntentService
+   * stops the service, as appropriate.
+   */
+  @Override
+  protected void onHandleIntent(Intent intent) {
+      // Normally we would do some work here, like download a file.
+      // For our sample, we just sleep for 5 seconds.
+      long endTime = System.currentTimeMillis() + 5*1000;
+      while (System.currentTimeMillis() < endTime) {
+          synchronized (this) {
+              try {
+                  wait(endTime - System.currentTimeMillis());
+              } catch (Exception e) {
+              }
+          }
+      }
+  }
+}

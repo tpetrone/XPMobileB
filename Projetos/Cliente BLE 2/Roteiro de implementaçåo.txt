@@ -1,0 +1,41 @@
+- Transformar o método startScan de DeviceManager num Intent Service
+- Modificar esta lógica para acrescentar uma Thread para limitar o tempo de scaneamento
+  veja exemplo de códigi no site developar.android.com
+// http://developer.android.com/intl/pt-br/guide/topics/connectivity/bluetooth-le.html
+/**
+ * Activity for scanning and displaying available BLE devices.
+ */
+public class DeviceScanActivity extends ListActivity {
+
+    private BluetoothAdapter mBluetoothAdapter;
+    private boolean mScanning;
+    private Handler mHandler;
+
+    // Stops scanning after 10 seconds.
+    private static final long SCAN_PERIOD = 10000;
+    ...
+    private void scanLeDevice(final boolean enable) {
+        if (enable) {
+            // Stops scanning after a pre-defined scan period.
+            mHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mScanning = false;
+                    mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                }
+            }, SCAN_PERIOD);
+
+            mScanning = true;
+            mBluetoothAdapter.startLeScan(mLeScanCallback);
+        } else {
+            mScanning = false;
+            mBluetoothAdapter.stopLeScan(mLeScanCallback);
+        }
+        ...
+    }
+...
+}
+
+- incluir a configuração de um alarme para que este serviço seja restartado
+
+- Criar um broadcatreceiver para restartar o serviço a partir de um alarme criado no serviço
