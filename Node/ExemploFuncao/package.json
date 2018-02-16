@@ -1,0 +1,16 @@
+{
+  "name": "exemplofuncao",
+  "version": "1.0.0",
+  "description": "Criação de Notificações quando detectado o envio de nova mensagem no Chat App",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "notification",
+    "android",
+    "functions"
+  ],
+  "author": "JSWilProf",
+  "license": "ISC"
+}

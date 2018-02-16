@@ -1,0 +1,16 @@
+export http_proxy=http://localhost:3129
+export http_proxy=https://localhost:3129
+export http_proxy=ftp://localhost:3129
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
+npm init
+npm set strict-ssl false
+npm install -g firebase-tools
+
+firebase login
+
+firebase init
+
+"SEM PROXY"
+
+firebase deploy
