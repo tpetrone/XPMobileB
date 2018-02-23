@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1088993279138",
+    "firebase_url": "https://exemploautenticacao-c2c24.firebaseio.com",
+    "project_id": "exemploautenticacao-c2c24",
+    "storage_bucket": "exemploautenticacao-c2c24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1088993279138:android:91e8c7ac74dbd4cb",
+        "android_client_info": {
+          "package_name": "br.senai.sp.informatica.exemploautenticacao"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1088993279138-o7r8hlam39m02pp1mra9mktl7hkkr1i7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.senai.sp.informatica.exemploautenticacao",
+            "certificate_hash": "d56d427c4e78590f2cffcb49322fd52bc2d90acc"
+          }
+        },
+        {
+          "client_id": "1088993279138-lvb8011tssiaohj69ji7dpof5h0bncs9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQEcrcKtx570yIdL1erhJ4B2G33ULJvwQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1088993279138-lvb8011tssiaohj69ji7dpof5h0bncs9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,49 @@
+mensagens
+	|
+	+ usuario_id
+	|	|
+	|	+ destinatario_id
+	|	|	|
+	|	|	+ chat_id
+	|	|	|	|
+	|	|	|	+ id
+	|	|	|	+ mensagem
+	|	|	|	+ data
+	|	|	|	
+	|	|	+ chat_id
+	|	|		|
+	|	|		+ id
+	|	|		+ mensagem
+	|	|		+ data
+	|	|	
+	|	+ destinatario_id
+	|		|
+	|		+ chat_id
+	|			|
+	|			+ id
+	|			+ mensagem
+	|			+ data
+	|
+	+ usuario_id
+		|
+		+ destinatario_id
+			|
+			+ chat_id
+				|
+				+ id
+				+ mensagem
+				+ data
+
+usuarios
+	|
+	+ usuario_id
+	|	|
+	|	+ id
+	|	+ email
+	|	+ logado
+	|
+	+ usuario_id
+		|
+		+ id
+		+ email
+		+ logado
